@@ -2,13 +2,14 @@ package introduction;
 
 public class Sophomore extends Student {
 
+	private String majorPreference;
 	public Sophomore(String name, String majorPreference) {
 		super(name);
-		String majorPreference = this.majorPreferece;
+		this.majorPreference = majorPreference;
 	}
 	public void talk(){
 		super.talk();
-		System.out.println(" and I am a sophomore!");
+		System.out.println(" and I am a sophomore!" + majorPreference);
 	}
 
 }
