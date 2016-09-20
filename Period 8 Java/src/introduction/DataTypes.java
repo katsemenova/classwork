@@ -11,6 +11,8 @@ public class DataTypes {
 //		System.out.println("d2 : " + d2); 
 //		System.out.println("d3 : " + d3);  
 //		System.out.println("d1 - d2 : " + (d1 - d2));
+		
+		
 //		String s = 1;
 //		System.out.println(s);
 		
@@ -42,6 +44,14 @@ public class DataTypes {
 //		int m = 22;
 //		int n = 7;
 //		System.out.println("m/n is "+((double)m/n));
+		
+		String ten = "10";
+		String two = "2";
+		if(ten.compareTo(two)>0)
+			System.out.println("10 is greater than two");
+		else
+			System.out.println("10 is not greater than two");
+			
 	}
 
 }

@@ -7,7 +7,7 @@ public class Senior extends Student {
 	}
 	
 	public void talk(){
-//		super.talk();
+		super.talk();
 		System.out.println(" and I am a senior!");
 	}
 

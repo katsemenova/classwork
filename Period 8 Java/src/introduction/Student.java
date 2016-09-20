@@ -11,7 +11,6 @@ public class Student {
 	//this talk method calls a variable "name" which calls the global variable not the 
 	//variable inside the constructor because that one is local
 	public void talk(){
-		
 		System.out.print("Hello, my name is " + name);
 	}
 }
