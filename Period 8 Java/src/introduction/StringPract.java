@@ -1,8 +1,40 @@
 package introduction;
 
+import java.util.Scanner;
+
 public class StringPract {
+	
+	static Scanner input;
+	static String user;
 
 	public static void main(String[] args) {
+//		demonstrateStringMethods();
+		createFields();
+		promptName();
+		promptForever();
+		
+	}
+	public static void promptName(){
+	print("Enter your name");
+	user=input.nextLine();
+	print("Glad to meet you "+user+". For the rest of time I will call you " +user +". You may call me Computer. We will be friends.");
+	}
+
+	public static void promptForever() {
+		while(true){
+			promptInput();
+		}
+	}
+	public static void promptInput(){
+		print("Please type something "+user);
+		String userInput = input.nextLine();
+		print("Congrats, you typed: "+userInput);
+	}
+	public static void createFields(){
+		input=new Scanner(System.in);
+		user= "";
+	}
+	public static void demonstrateStringMethods(){
 		String text1 = new String("Hello World");
 		String text2 = "Hello World";
 			
@@ -18,9 +50,35 @@ public class StringPract {
 			print("word1 comes before word2");
 		}
 	}
-	
 	public static void print(String s){
-		System.out.println(s);
+		String printString=s;
+		int cutoff=10;
+		if(printString.length()>cutoff){
+			printString="";
+			for(int i=0;(i+1)*cutoff<s.length();i++){
+				printString+=getCut(s,cutoff,i+1)+i+"\n";
+			}
+		}
+		System.out.println(printString);
+	}
+	
+	private static String getCut(String s, int cutoff, int cut)
+	{
+		
+		int cutIndex=cut*cutoff;
+		if(cutIndex>s.length())
+			cutIndex=s.length();
+		String currentCut=s.substring(0, cutIndex);
+		int indexOfLastSpace=currentCut.length()-1;
+		for(int i=indexOfLastSpace; i>=0;i--){
+			String letter = currentCut.substring(i, i+1);
+			if(letter.equals(" ")){
+				indexOfLastSpace=i;
+				break;
+			}
+		}
+		currentCut=currentCut.substring(indexOfLastSpace-cutIndex, indexOfLastSpace);
+		return currentCut;
 	}
 
 }
