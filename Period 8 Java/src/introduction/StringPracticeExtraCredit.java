@@ -2,7 +2,7 @@ package introduction;
 
 import java.util.Scanner;
 
-public class StringPract {
+public class StringPracticeExtraCredit {
 	
 	static Scanner input;
 	static String user;
@@ -51,41 +51,41 @@ public class StringPract {
 		}
 	}
 	public static void print(String s){
-		 String printString = "";
-		 int cutoff = 25;
-		 //this while loop last as long as there are words left in the original String
-		 while(s.length() > 0){
-
-		 String currentCut = "";
-		 String nextWord = "";
-
-		 //while the current cut is still less than the line length 
-		 //AND there are still words left to add
-		 while(currentCut.length()+nextWord.length() < cutoff && s.length() > 0){
-
-		 //add the next word
-		 currentCut += nextWord;
-		 
-		 //remove the word that was added from the original String
-		 s = s.substring(nextWord.length());
-		 
-		 //identify the following word, exclude the space
-		 int endOfWord = s.indexOf(" ");
-
-		 //if there are no more spaces, this is the last word, so add the whole thing
-		 if(endOfWord == -1) {
-		 endOfWord = s.length()-1;//subtract 1 because index of last letter is one les than length
-		 }
-
-		 //the next word should include the space
-		 nextWord = s.substring(0,endOfWord+1);
-		 }
-
-		 printString +=currentCut+"\n";
-
-		 }
-		 System.out.print(printString);
-		 }
-
+		String printString=s;
+		int cutoff=15;
+		if(printString.length()>cutoff){
+			printString="";
+			for(int i=0;(i+1)*cutoff<s.length();i++){
+				int beginCut;
+				if(i==0)
+					beginCut=0;
+				else
+					beginCut=i+1;
+				printString+=getCut(s,beginCut,cutoff,i+1)+i+"\n";
+				
+			}
+		}
+		System.out.println(printString);
 	}
 	
+	private static String getCut(String s,int beginCut, int cutoff, int cut)
+	{
+		
+		int cutIndex=cut*cutoff;
+		if(cutIndex>s.length())
+			cutIndex=s.length();
+		String currentCut=s.substring(beginCut, cutIndex);
+		
+		int indexOfLastSpace=currentCut.length()-1;
+		for(int i=indexOfLastSpace; i>=0;i--){
+			String letter = currentCut.substring(i, i+1);
+			if(letter.equals(" ")){
+				indexOfLastSpace=i;
+				break;
+			}
+		}
+		currentCut=currentCut.substring(0, indexOfLastSpace);
+		return currentCut;
+	}
+
+}
