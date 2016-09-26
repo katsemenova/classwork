@@ -46,7 +46,7 @@ public class KatMain {
 		searchString=searchString.toLowerCase();
 		keyword=keyword.toLowerCase();
 		//find first position of key word
-		int psn=searchString.indexOf(0);
+		int psn=searchString.indexOf(keyword);
 		//keep searching until keyword found
 		while (psn>=0){
 			//assume preceeded and followed by space
