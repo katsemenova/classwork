@@ -1,11 +1,15 @@
-package introduction;
+package chatbot;
 
 import java.util.Scanner;
 
-public class StringPract {
+public class KatMain {
 	
 	static Scanner input;
 	static String user;
+	static String response; 
+	static boolean inMainLoop; 
+	//list all the chatbots available under this class
+	static Chatbot school; 
 
 	public static void main(String[] args) {
 //		demonstrateStringMethods();
@@ -15,24 +19,62 @@ public class StringPract {
 		
 	}
 	public static void promptName(){
-		print("Enter your name");
-		user=input.nextLine();
-		print("Glad to meet you "+user+". For the rest of time I will call you " +user +". You may call me Computer. We will be friends.");
+	print("Enter your name");
+	user=input.nextLine();
+	print("Glad to meet you "+user+". For the rest of time I will call you " +user +". You may call me Computer. We will be friends.");
 	}
 
 	public static void promptForever() {
-		while(true){
-			promptInput();
+		inMainLoop =true;
+		while(inMainLoop){
+			print("Hi, "+user+ ". How are you?");
+			response = promptInput();
+			if(findKeyword(response, "good", 0)>=0)
+				print("That's wonderful. So glad that you feel good.");
+			else if(response.indexOf("school")>=0){
+				print("School is great. Tell me more.");
+				inMainLoop=false;
+				school.talk();
+			}
+			else 
+				print("I don't understand");
 		}
 	}
-	public static void promptInput(){
-		print("Please type something "+user);
+	public static int findKeyword(String searchString, String keyword, int startPosition) {
+		//delete white space on outside
+		searchString=searchString.trim();
+		searchString=searchString.toLowerCase();
+		keyword=keyword.toLowerCase();
+		//find first position of key word
+		int psn=searchString.indexOf(0);
+		//keep searching until keyword found
+		while (psn>=0){
+			//assume preceeded and followed by space
+			String before=" ";
+			String after=" ";
+			//check if character in front e=of it exists
+			if(psn>0){
+				before=searchString.substring(psn-1, psn);
+			}
+			//check for characted after keyword
+			if(pns+keyword.length()<searchString.length()){
+				after=searchString.substring(psn+keyword.length(),psn+keyword.length()+1);
+			}
+			if(before.compareTo("a")<0 && after.compareTo("a"))
+				return psn;
+			else
+				psn=searchString.indexOf(keyword,psn+1)
+		}
+		return -1;
+	}
+	public static String promptInput(){
 		String userInput = input.nextLine();
-		print("Congrats, you typed: "+userInput);
+		return userInput;
 	}
 	public static void createFields(){
 		input=new Scanner(System.in);
 		user= "";
+		school= new KatSchool(); 
 	}
 	public static void demonstrateStringMethods(){
 		String text1 = new String("Hello World");
@@ -88,4 +130,3 @@ public class StringPract {
 		 }
 
 	}
-	
