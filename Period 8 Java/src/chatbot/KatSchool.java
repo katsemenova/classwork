@@ -20,5 +20,13 @@ public class KatSchool implements Chatbot{
 		}
 		
 	}
+	@Override
+	public boolean isTriggered(String userInput) {
+		//idea create a for loop to itirate through triggers
+		if (KatMain.findKeyword(userInput, "school", 0)>=0)
+			return true;
+		
+		return false;
+	}
 
 }

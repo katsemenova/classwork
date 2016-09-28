@@ -73,8 +73,7 @@ public class KatMain {
 	/**helper method thats assigned for helping a larger method, generally they are private because they
 	 *are only used by the methods they are helping
 	 *@param search string
-	 *@param psn
-	 * @return 
+	 *@param psn 
 	 *@return "true" if no negation words
 	 */
 	private static boolean noNegations(String searchString, int psn) {
