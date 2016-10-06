@@ -10,6 +10,7 @@ public class KatMain {
 	static boolean inMainLoop; 
 	//list all the chatbots available under this class
 	static Chatbot school; 
+	static Chatbot hellos;
 
 	public static void main(String[] args) {
 //		demonstrateStringMethods();
@@ -47,8 +48,6 @@ public class KatMain {
 		keyword=keyword.toLowerCase();
 		//find first position of key word
 		int psn=searchString.indexOf(keyword);
-		System.out.println("keyword found at "+psn);
-		System.out.println("string is "+searchString);
 		//keep searching until keyword found
 		while (psn>=0){
 			//assume preceded and followed by space
@@ -62,7 +61,7 @@ public class KatMain {
 			if(psn+keyword.length()<searchString.length()){
 				after=searchString.substring(psn+keyword.length(),psn+keyword.length()+1);
 			}
-			if((before.compareTo("a")<0) && (after.compareTo("a")<0)&&noNegations(searchString,psn)){				noNegations(searchString,psn);
+			if((before.compareTo("a")<0) && (after.compareTo("a")<0)&&noNegations(searchString,psn)){
 				return psn;
 			}
 			else
@@ -103,6 +102,7 @@ public class KatMain {
 		input=new Scanner(System.in);
 		user= "";
 		school= new KatSchool(); 
+		hellos= new KatHello();
 	}
 	public static void demonstrateStringMethods(){
 		String text1 = new String("Hello World");
