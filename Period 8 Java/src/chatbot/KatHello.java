@@ -33,10 +33,10 @@ public class KatHello implements Chatbot {
 	private void printResponse() {
 		if(helloCount>4){
 			int responseSelection=(int)(Math.random()*angryResponses.length);
-			katMain.print(angryResponses[responseSelection]);	
+			KatMain.print(angryResponses[responseSelection]);	
 		}else{
 			int responseSelection=(int)(Math.random()*calmResponses.length);
-			katMain.print(calmResponses[responseSelection]);	
+			KatMain.print(calmResponses[responseSelection]);	
 		}
 	}
 
