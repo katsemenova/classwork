@@ -13,6 +13,7 @@ public class KatHello implements Chatbot {
 	
 	public KatHello(){
 		helloCount=0; 
+
 	}
 	
 	public void talk() {
@@ -21,7 +22,8 @@ public class KatHello implements Chatbot {
 			helloCount++; 
 			printResponse(); //helper method
 			helloResponse=KatMain.promptInput();
-			//to negate use !
+			System.out.println("hello count= "+ helloCount);
+			
 			if(!isTriggered(helloResponse)){
 				inHelloLoop=false;
 				KatMain.promptForever();
