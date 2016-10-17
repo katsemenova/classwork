@@ -6,11 +6,29 @@ public class ArraysPractice {
 	public static void main(String[] args) {
 		//how to time a process
 		long currentTime=System.currentTimeMillis();
-		initializingArrayExample();
+		String[]  someStrings=new String[1000];
+		standardPopulate(someStrings);
+		String s= someStrings[999];
+		makeSpecial(s);
+		print(someStrings);
 		long endTime= System.currentTimeMillis();
 		System.out.println("The processtook "+(endTime-currentTime)+" ms.");
 	}
 	
+	private static void standardPopulate(String[] s) {
+		for(int i=0;i<s.length;i++){
+			s[i]="String #" + (i+1);
+		}
+		
+	}
+	private static void makeSpecial(String s){
+		s ="This string is sprecial";
+	}
+	private static void print(String[] s){
+		for(int i=0;i<s.length;i++){
+			System.out.println(s[i]);
+		}
+	}
 	public static void initializingArrayExample(){
 		/**
 		 In java arrays have a fixed length
