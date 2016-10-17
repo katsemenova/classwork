@@ -4,6 +4,14 @@ public class ArraysPractice {
 	static boolean[] boos3;
 
 	public static void main(String[] args) {
+		//how to time a process
+		long currentTime=System.currentTimeMillis();
+		initializingArrayExample();
+		long endTime= System.currentTimeMillis();
+		System.out.println("The processtook "+(endTime-currentTime)+" ms.");
+	}
+	
+	public static void initializingArrayExample(){
 		/**
 		 In java arrays have a fixed length
 		  indicies with 0
@@ -18,6 +26,14 @@ public class ArraysPractice {
 		  so for int it would be "0"
 		  for double "0.0"
 		  for boolean false
+		  
+		  Primitive type[]
+		  they are "already" in the system, start as zero
+		  cannot mix types
+		  
+		  Object[]
+		  unless initialized start as null,
+		  can have different types of objects of common superclass
 		 */
 		//two ways to initialize array
 		boolean[] boos1= new boolean[3];
@@ -68,5 +84,4 @@ public class ArraysPractice {
 			System.out.println(s);
 		}
 	}
-
 }
