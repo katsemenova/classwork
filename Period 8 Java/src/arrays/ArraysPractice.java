@@ -4,17 +4,92 @@ public class ArraysPractice {
 	static boolean[] boos3;
 
 	public static void main(String[] args) {
-		//how to time a process
 		long currentTime=System.currentTimeMillis();
-		String[]  someStrings=new String[1000];
-		standardPopulate(someStrings);
-		String s= someStrings[999];
-		makeSpecial(s);
-		print(someStrings);
+		
+		int[] fiftyNumbers = new int[50];
+		System.out.println("Populating");
+		populate(fiftyNumbers);
+		print(fiftyNumbers);
+		
+		System.out.println("Random numbers");
+		randomize(fiftyNumbers,50);
+		print(fiftyNumbers);
+		
+		System.out.println("Rolling dice");
+		rollDice(fiftyNumbers,3);
+		print(fiftyNumbers);
+		//count each die roll and provide a percentage
+		System.out.println("Results of rolling dice");
+		countResult(fiftyNumbers, 3);
+		
 		long endTime= System.currentTimeMillis();
 		System.out.println("The processtook "+(endTime-currentTime)+" ms.");
 	}
 	
+	private static void rollDice(int[] intArray, int numberOfDice) {
+		for(int i=0;i<intArray.length;i++){
+			int dice=0;
+			for(int j=0;j<numberOfDice;j++){
+				dice=dice+(int)(1+6*Math.random());
+			}
+			intArray[i]=dice;
+		}
+	}
+
+	private static void countResult(int[] intArray, int numDice) {
+		int counterLength = numDice*6;
+		int[] counter= new int[counterLength];
+		
+		for(int n:intArray){
+			counter[n-1]=counter[n-1]+1;
+		}
+		for(int i=0;i<counter.length;i++){
+			System.out.println((i+1)+" was rolled "+ 100*counter[i]/intArray.length+" % of the time");
+		}
+//		for(int i=0; i<intArray.length;i++){
+//			int digit= intArray[i];
+//			results[digit-1]++;
+//		}
+//		print(results);
+	}
+
+	private static void randomize(int[] intArray, int max) {
+		for(int i=0;i<intArray.length;i++){
+			int random = (int)(1+max*Math.random());
+			intArray[i]=random;
+		}
+		
+	}
+
+	private static void populate(int[] intArray) {
+		for(int i=0;i<intArray.length;i++){
+			intArray[i]=(i+1);
+		}
+	}
+
+	private static void print(int[] intArray) {
+		for(int i: intArray){
+			System.out.println(i);
+		}
+		
+	}
+
+	private void demonstratePassedByValue(){
+		//how to time a process
+				/**
+				 * pass-by value is when a local variable chnages but doesn't change the input;
+				 */
+				long currentTime=System.currentTimeMillis();
+				String[]  someStrings=new String[1000];
+				standardPopulate(someStrings);
+				String s= someStrings[999];
+				makeSpecial(s);
+				print(someStrings);
+				
+				long endTime= System.currentTimeMillis();
+				System.out.println("The processtook "+(endTime-currentTime)+" ms.");	
+		
+	}
 	private static void standardPopulate(String[] s) {
 		for(int i=0;i<s.length;i++){
 			s[i]="String #" + (i+1);
