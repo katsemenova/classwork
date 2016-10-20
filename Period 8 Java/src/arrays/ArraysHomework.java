@@ -1,8 +1,23 @@
 package arrays;
 
+import java.lang.reflect.Array;
+
 public class ArraysHomework {
 
     public static void main(String[] args) {
+//        double[] test={13.0,11.4,9.3,7.3,5.3,3.5,1.0,0.2};
+//        System.out.println("test 1 is"+ getStats(test));
+//        
+//        for(int i=0;i<6;i++){
+//        	System.out.println(getStats(test)[i]);
+//        }
+        int[] test2={1,6,3};
+        
+        reverseOrder(test2);
+        
+        for(int i=0;i<3;i++){
+        	System.out.println(test2[i]);
+        }
         
         /**
          * IMPORTANT NOTE: 
@@ -20,6 +35,10 @@ public class ArraysHomework {
         * int corresponding to the index of a key, if it is in the array
         * if the key is not in the array, this method returns -1
         * */
+    	   for(int i=0;i<arrayToSearch.length;i++){
+    		   if(arrayToSearch[i]==key)
+    			   return i;
+    	   }
         return -1;
        }
        
@@ -31,6 +50,18 @@ public class ArraysHomework {
         * 
         * Note: You should attempt to write a method that is more efficient that searchUnsorted
         * */
+    	int length=sortedArrayToSearch.length;
+    	if(key<=sortedArrayToSearch[length/2]){
+    		for(int i=sortedArrayToSearch[length/2]-1;i<sortedArrayToSearch.length;i++){
+     		   if(sortedArrayToSearch[i]==key)
+     			   return i;
+     	   }	
+    	}else if (key>sortedArrayToSearch[length/2]){
+    		for(int i=0;i<sortedArrayToSearch.length/2;i++){
+      		   if(sortedArrayToSearch[i]==key)
+      			   return i;
+      	   }	
+    	}
         return -1;
        }
        
@@ -38,6 +69,17 @@ public class ArraysHomework {
            /**
             * This method takes an in array as a parameter and returns 'true' if the array is already sorted in DESCENDING order
             * */
+    	   boolean inLoop = true;
+    	   while(inLoop){
+    		   for(int i=0;i< array.length;i++){
+    			   if(i+1==array.length)
+    				   return inLoop=true;
+    			   else if(!(array[i]>array[i+1]))
+    				   return inLoop=false;
+        	   }
+    		   return true;
+    	   }
+    	   
            return false;
        }
        
@@ -54,6 +96,47 @@ public class ArraysHomework {
             * index 5 = the number of values below the mean
             * */
             double[] stats = new double[6];
+            
+            double sum=0.0;
+	            for(double v:array){
+	            	sum=sum+v;
+	            }
+            double mean=sum/array.length; 
+            		
+            double max=0.0;
+	            for(double n:array){
+	            	if(n>max)
+	            		max=n;
+	            }
+            
+            double min=max;
+	            for(double n:array){
+	            	if(n<min)
+	            		min=n;
+	            }
+            double median=0.0;
+            	if(array.length%2==1)
+            		median=array[(int) Math.floor(array.length)];
+            	else
+            		median=(array[array.length/2]+array[array.length/2-1])/2;
+            
+            double numMore=0.0;
+	            for(double n:array){
+	            	if(n>=mean)
+	            		numMore++;
+	            }
+            double numLess=0.0;
+	            for(double n:array){
+	            	if(n<mean)
+	            		numLess++;
+	            }
+            
+            stats[0]=mean;
+            stats[1]=max;
+            stats[2]=min;
+            stats[3]=median;
+            stats[4]=numMore;
+            stats[5]=numLess;
             return stats;
        }
        
@@ -70,6 +153,13 @@ public class ArraysHomework {
             * array = {-6, 16, 10, 9, 1, 5}
             * 
             * */
+    	   int tempArray[] =new int[array.length];
+    	   for(int i=0;i<array.length;i++){
+    		   tempArray[i]=array[array.length-i-1];
+    	   }for(int i=0;i<array.length;i++){
+              	array[i]=tempArray[i];
+           }
+    	   
        }
        
        public static int countDifferences(int[] array1, int[] array2){
