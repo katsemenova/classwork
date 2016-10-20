@@ -5,19 +5,19 @@ import java.lang.reflect.Array;
 public class ArraysHomework {
 
     public static void main(String[] args) {
-//        double[] test={13.0,11.4,9.3,7.3,5.3,3.5,1.0,0.2};
-//        System.out.println("test 1 is"+ getStats(test));
-//        
-//        for(int i=0;i<6;i++){
-//        	System.out.println(getStats(test)[i]);
-//        }
-        int[] test2={1,6,3};
+        double[] test={13.0,11.4,9.3,7.3,5.3,3.5,1.0,0.2};
+        System.out.println("test 1 is"+ getStats(test));
         
-        reverseOrder(test2);
-        
-        for(int i=0;i<3;i++){
-        	System.out.println(test2[i]);
+        for(int i=0;i<6;i++){
+        	System.out.println(getStats(test)[i]);
         }
+//        int[] test2={1,6,3};
+//        
+//        reverseOrder(test2);
+//        
+//        for(int i=0;i<3;i++){
+//        	System.out.println(test2[i]);
+//        }
         
         /**
          * IMPORTANT NOTE: 
@@ -115,8 +115,9 @@ public class ArraysHomework {
 	            		min=n;
 	            }
             double median=0.0;
+            orderArray(array);
             	if(array.length%2==1)
-            		median=array[(int) Math.floor(array.length)];
+            		median=array[(int) Math.floor(array.length/2)];
             	else
             		median=(array[array.length/2]+array[array.length/2-1])/2;
             
@@ -140,7 +141,15 @@ public class ArraysHomework {
             return stats;
        }
        
-       public static void reverseOrder(int[] array){
+       private static void orderArray(double[] array) {
+    	
+		for(int i=0;i<array.length;i++){
+			
+		}
+		
+	}
+
+	public static void reverseOrder(int[] array){
            /**
             * this method reverses the order of the array passed to it.
             * Not that this method does not have a return type. You do not need to copy the array first
