@@ -141,12 +141,11 @@ public class ArraysHomework {
             return stats;
        }
        
-       private static void orderArray(double[] array) {
-    	
-		for(int i=0;i<array.length;i++){
-			
-		}
-		
+       
+       private static void swap(double[] arr,int a,int b) {
+    	double placeholder=arr[b];
+    	arr[b]=arr[a];
+		arr[a]=placeholder;
 	}
 
 	public static void reverseOrder(int[] array){
