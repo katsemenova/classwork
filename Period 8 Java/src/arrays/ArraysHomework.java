@@ -5,12 +5,12 @@ import java.lang.reflect.Array;
 public class ArraysHomework {
 
     public static void main(String[] args) {
-        double[] test={13.0,11.4,9.3,7.3,5.3,3.5,1.0,0.2};
-        System.out.println("test 1 is"+ getStats(test));
-        
-        for(int i=0;i<6;i++){
-        	System.out.println(getStats(test)[i]);
-        }
+//        double[] test={13.0,11.4,9.3,7.3,5.3,3.5,1.0,0.2};
+//        System.out.println("test 1 is"+ getStats(test));
+//        
+//        for(int i=0;i<6;i++){
+//        	System.out.println(getStats(test)[i]);
+//        }
 //        int[] test2={1,6,3};
 //        
 //        reverseOrder(test2);
@@ -18,7 +18,9 @@ public class ArraysHomework {
 //        for(int i=0;i<3;i++){
 //        	System.out.println(test2[i]);
 //        }
-        
+        	int[] arr1={9,6,1,4,3,6,7,9} ;
+        	int[]arr2={9,6,5,8,3,6,7,0};
+        	longestSharedSequence(arr1,arr2);
         /**
          * IMPORTANT NOTE: 
          * This homework assignment will be weighted 4x.
@@ -52,12 +54,12 @@ public class ArraysHomework {
         * */
     	int length=sortedArrayToSearch.length;
     	if(key<=sortedArrayToSearch[length/2]){
-    		for(int i=sortedArrayToSearch[length/2]-1;i<sortedArrayToSearch.length;i++){
+    		for(int i=sortedArrayToSearch[length/2]-1; i<length; i++){
      		   if(sortedArrayToSearch[i]==key)
      			   return i;
      	   }	
     	}else if (key>sortedArrayToSearch[length/2]){
-    		for(int i=0;i<sortedArrayToSearch.length/2;i++){
+    		for(int i=0;i<length/2;i++){
       		   if(sortedArrayToSearch[i]==key)
       			   return i;
       	   }	
@@ -141,12 +143,8 @@ public class ArraysHomework {
             return stats;
        }
        
-       
-       private static void swap(double[] arr,int a,int b) {
-    	double placeholder=arr[b];
-    	arr[b]=arr[a];
-		arr[a]=placeholder;
-	}
+      // private static sortArray(double[] arr,max)
+       // find max in array, then make the index of the return array to it 
 
 	public static void reverseOrder(int[] array){
            /**
@@ -210,11 +208,34 @@ public class ArraysHomework {
             *          since the sequence '9,6,3,4,3' is in both arrays and is 5 integers long, it doesn't matter that the sequence begins at different indices 
             * longestSequence({9,6,1,4,3,6,7,9}, {9,6,5,8,3,6,7,0}) returns '3', since the sequence '3,6,7' is in both arrays and is 3 integers long
             * */
-           
+    	   int tempSequenceLength=0;
+    	   int longestSequence=0;
+           for(int i=0;i<array1.length;i++){
+        	   for(int j=0;j<array2.length;i++){
+        		   if(array1[i]==array2[j]){
+        			   tempSequenceLength = countSequence(array1, array2,i,j);
+        			   i=i+tempSequenceLength;
+        			   if(tempSequenceLength>longestSequence)
+        				   longestSequence=longestSequence;
+        		   }
+        	   }
+           }
            return 0;
        }
 
-       public static int[] generateDistinctItemsList(int n){
+       private static int countSequence(int[] arr1,int[] arr2,int start1, int start2) {
+    	   int sequenceLength=0;
+			int arr1Start = start1;
+			int arr2Start = start2;
+			while (arr1[arr1Start]==arr2[arr2Start]){
+				sequenceLength++;
+				arr1Start++;
+				arr2Start++;
+			}
+		return sequenceLength;
+	}
+
+	public static int[] generateDistinctItemsList(int n){
            /**
             * This method needs to generate an int[] of length n that contains distinct, random integers
             * between 1 and 2n 
@@ -249,6 +270,26 @@ public class ArraysHomework {
             * CHALLENGE
             * For extra credit, make your method handle NEGATIVE n
             * */
+    	   while(n>0){
+    		   cycleOnce(array);
+    		   n--;
+    	   }
        }
+
+	private static void cycleOnce(int[] arr) {
+		if(arr.length>1){
+			for(int i=1;i<arr.length;i++){
+				int index1=i;
+				int index2=i-1;
+				swap(arr,index1,index2);
+				
+			}
+		}
+	}
+	private static void swap(int[] arr,int a,int b) {
+    	int placeholder=arr[b];
+    	arr[b]=arr[a];
+		arr[a]=placeholder;
+	}
        
 }
