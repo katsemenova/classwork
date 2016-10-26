@@ -18,10 +18,11 @@ public class ArraysHomework {
 //        for(int i=0;i<3;i++){
 //        	System.out.println(test2[i]);
 //        }
-    	int[] array = generateDistinctItemsList(5);
-    	for(int i=0;i<array.length;i++){
-        	System.out.println(array[i]);
-        }
+
+        	int[] arr1={0,9,6,3,4,3,8,9,3,6}; 
+        	int[]arr2={1,2,9,6,3,4,3,6,7};
+        	System.out.println(longestSharedSequence(arr1,arr2));
+
         /**
          * IMPORTANT NOTE: 
          * This homework assignment will be weighted 4x.
@@ -41,21 +42,21 @@ public class ArraysHomework {
        }
        
        public static int searchSorted(int[] sortedArrayToSearch, int key){
-	    	int length=sortedArrayToSearch.length;
-	    	if(key<=sortedArrayToSearch[length/2]){
-	    		for(int i=sortedArrayToSearch[length/2]-1;i<sortedArrayToSearch.length;i++){
-	     		   if(sortedArrayToSearch[i]==key)
-	     			   return i;
-	     	   	}	
-	    	}else if (key>sortedArrayToSearch[length/2]){
-	    		for(int i=0;i<sortedArrayToSearch.length/2;i++){
-	      		   if(sortedArrayToSearch[i]==key)
-	      			   return i;
-	      	   	}	
-	    	}
-	        return -1;
-	    }
+    	   int length=sortedArrayToSearch.length;
+       	if(key<=sortedArrayToSearch[length/2]){
+       		for(int i=sortedArrayToSearch[length/2]-1;i<sortedArrayToSearch.length;i++){
+        		   if(sortedArrayToSearch[i]==key)
+        			   return i;
+        	   }	
+       	}else if (key>sortedArrayToSearch[length/2]){
+       		for(int i=0;i<sortedArrayToSearch.length/2;i++){
+         		   if(sortedArrayToSearch[i]==key)
+         			   return i;
+         	   }	
+       	}
        
+        return -1;
+       }
        public static boolean isSorted(int[] array){
     	   boolean inLoop = true;
     	   while(inLoop){
@@ -107,6 +108,7 @@ public class ArraysHomework {
             return stats;
        }
        
+
        
        private static double getNumberLessMean(double[] array, double mean) {
     	   double numLess=0.0;
@@ -168,16 +170,7 @@ public class ArraysHomework {
 		return 0;
 	}
 
-	private static void swap(double[] arr,int a,int b) {
-    	double placeholder=arr[b];
-    	arr[b]=arr[a];
-		arr[a]=placeholder;
-       }
 
-	/////end of get stats
-	
-	////
-	////
 	public static void reverseOrder(int[] array){
     	   int tempArray[] =new int[array.length];
     	   for(int i=0;i<array.length;i++){
@@ -234,26 +227,41 @@ public class ArraysHomework {
             * longestSequence({9,6,3,4,3,8,9}, {9,6,3,4,3,6,7}) returns '5', since the sequence '9,6,3,4,3' is in both arrays and is 5 integers long 
             * longestSequence({0,9,6,3,4,3,8,9}, {1,2,9,6,3,4,3,6,7}) returns '5', 
             *          since the sequence '9,6,3,4,3' is in both arrays and is 5 integers long, it doesn't matter that the sequence begins at different indices 
-            * longestSequence({9,6,1,4,3,6,7,9}, {9,6,5,8,3,6,7,0}) returns '3', since the sequence '3,6,7' is in both arrays and is 3 integers long
+            * longestSequence({3,9,6,1,4,3,6,7,9}, {4,9,6,5,8,3,6,7,0}) returns '3', since the sequence '3,6,7' is in both arrays and is 3 integers long
             * */
-    	   int currentSequence=0;
-           int longestSequence=0;
-         
-           return 0;
-       }
-       private static int[] startIndexOfSequence(int[] array1, int[] array2, int startArray1,int startArray2){
-    	  
-    	   for(int i=startArray1;i<array1.length;i++){
-        	   for(int j=startArray2;j<array2.length;j++){
+
+    	   int tempSequenceLength=0;
+    	   int longestSequence=0;
+           for(int i=0;i<array1.length;i++){
+        	   for(int j=0;j<array2.length;j++){
         		   if(array1[i]==array2[j]){
-        			   int[] tempArray={i,j};
-        			   return tempArray;
+        			   tempSequenceLength = countSequence(array1, array2,i,j);
+        			   if(tempSequenceLength>longestSequence)
+        				   longestSequence=tempSequenceLength;
+        			   if(array1.length<=i+tempSequenceLength)
+        			      i=array1.length;
+        			   else
+        				   i=i+tempSequenceLength-1;
+        			   System.out.println("i is "+i);
         		   }
+        		 
         	   }
            }
-    	   int[] tempArray={0,0};
-    	   return tempArray;
+           return longestSequence;
+
        }
+
+       private static int countSequence(int[] arr1,int[] arr2,int start1, int start2) {
+    	   int sequenceLength=0;
+			int arr1Start = start1;
+			int arr2Start = start2;
+			while (arr1Start<arr1.length-1&&arr2Start<arr2.length-1&&arr1[arr1Start]==arr2[arr2Start]){
+				sequenceLength++;
+				arr1Start++;
+				arr2Start++;
+			}
+		return sequenceLength;
+	}
 
        public static int[] generateDistinctItemsList(int n){
            
@@ -275,6 +283,8 @@ public class ArraysHomework {
     	   }
     	   return false;
        }
+       
+
        
        
        public static void cycleThrough(int[] array, int n){
@@ -300,6 +310,26 @@ public class ArraysHomework {
             * CHALLENGE
             * For extra credit, make your method handle NEGATIVE n
             * */
+    	   while(n>0){
+    		   cycleOnce(array);
+    		   n--;
+    	   }
        }
+
+	private static void cycleOnce(int[] arr) {
+		if(arr.length>1){
+			for(int i=1;i<arr.length;i++){
+				int index1=i;
+				int index2=i-1;
+				swap(arr,index1,index2);
+				
+			}
+		}
+	}
+	private static void swap(int[] arr,int a,int b) {
+    	int placeholder=arr[b];
+    	arr[b]=arr[a];
+		arr[a]=placeholder;
+	}
        
 }
