@@ -5,9 +5,9 @@ import java.lang.reflect.Array;
 public class ArraysHomework {
 
     public static void main(String[] args) {
-//        double[] test={13.0,11.4,9.3,7.3,5.3,3.5,1.0,0.2};
-//        System.out.println("test 1 is"+ getStats(test));
-//        
+        double[] test={13.0,11.4,9.3,7.3,5.3,3.5,1.0,0.2,0.5};
+        getStats(test);
+        
 //        for(int i=0;i<6;i++){
 //        	System.out.println(getStats(test)[i]);
 //        }
@@ -18,10 +18,10 @@ public class ArraysHomework {
 //        for(int i=0;i<3;i++){
 //        	System.out.println(test2[i]);
 //        }
-
-        	int[] arr1={0,9,6,3,4,3,8,9,3,6}; 
-        	int[]arr2={1,2,9,6,3,4,3,6,7};
-        	System.out.println(longestSharedSequence(arr1,arr2));
+//
+//        	int[] arr1={1,2,4,5,2,0,9,6,3,4,3,8,9,97,98}; 
+//        	int[]arr2={1,2,9,6,3,4,3,6,7,97,98};
+//        	System.out.println(longestSharedSequence(arr1,arr2));
 
         /**
          * IMPORTANT NOTE: 
@@ -74,30 +74,15 @@ public class ArraysHomework {
        
        
        public static double[] getStats(double[] array){
-           /** 
-            * This method return a double[] contain a WHOLE BUNCH of stats
-            * The double array must keep the following stats about the array parameter:
-            * index 0 = the mean
-            * index 1 = the max
-            * index 2 = the min
-            * index 3 = the median
-            * index 4 = the number of values greater than or equal to the mean
-            * index 5 = the number of values below the mean
-            * */
             double[] stats = new double[6];
             
             double mean=getMean(array); 
             double max=getMax(array);   
             double min=getMin(array,max);
-            double median=getMedian(array);
+        	double[] temp= sortArray(array,max);
+            double median=getMedian(temp);
             double numMore=getNumberGreaterMean(array, mean);
             double numLess=getNumberLessMean(array, mean);
-            double temp= orderArray(array);
-            	if(array.length%2==1)
-            		median=array[(int) Math.floor(array.length/2)];
-            	else
-            		median=(array[array.length/2]+array[array.length/2-1])/2;
-            
             
             stats[0]=mean;
             stats[1]=max;
@@ -107,9 +92,7 @@ public class ArraysHomework {
             stats[5]=numLess;
             return stats;
        }
-       
 
-       
        private static double getNumberLessMean(double[] array, double mean) {
     	   double numLess=0.0;
            for(double n:array){
@@ -139,8 +122,12 @@ public class ArraysHomework {
        }
 
        private static double getMedian(double[] array) {
-		return 0;
-		// TODO Auto-generated method stub
+    	   double median;
+    	   if(array.length%2==1)
+    		   median=array[(int) (array.length/2)];
+    	   else
+    		   median=(array[array.length/2]+array[array.length/2-1])/2;
+    	   return median;
 		
        }
 
@@ -159,16 +146,48 @@ public class ArraysHomework {
            for(double v:array){
            		sum=sum+v;
            }
-           double mean=sum/array.length; 
+           double mean=sum/array.length;   
 		return mean;
-    	   
-		
        }
 
-	private static double orderArray(double[] arr) {
-    	   
-		return 0;
-	}
+       private static double[] sortArray(double[] arr,double max){
+    	   double[] tempArray=new double[arr.length];
+    	   double[] copyArr = new double[arr.length];
+    	   for(int i=0;i<arr.length;i++){
+    		   copyArr[i]=arr[i];
+    	   }
+    	   tempArray[tempArray.length-1]=max;
+    	   int count=0;
+    	   while(!allTheSame(copyArr)&&count<tempArray.length-1){
+    		   double min= getMin(copyArr,max);
+    		   tempArray[count]=min;
+    		   int minPos = searchUnsortedDoubles(copyArr,min);
+    		   copyArr[minPos]=max;
+    		   count++;
+    	   }
+    	   for(int i=0;i<tempArray.length;i++){
+           	System.out.println(tempArray[i]);
+           }
+    	   return tempArray;
+		
+       }
+       public static int searchUnsortedDoubles(double[] arrayToSearch, double key){
+    	   for(int i=0;i<arrayToSearch.length;i++){
+    		   if(arrayToSearch[i]==key)
+    			   return i;
+    	   }
+        return -1;
+       }
+       
+       private static boolean allTheSame(double[] arr){
+    	   double currentNum=arr[0];
+    	   for(int i=1;i<arr.length;i++){
+    		   if(arr[i]!=currentNum)
+    			   return false;
+    		   currentNum=arr[i];
+    	   }
+    	   return true;
+       }
 
 
 	public static void reverseOrder(int[] array){
@@ -192,15 +211,6 @@ public class ArraysHomework {
        
 
        public static int longestConsecutiveSequence(int[] array1){
-           /**This method counts the longest consequtive sequence in an array.
-            * It does not matter where the sequence begins
-            * If there are no consecutive numbers, the method should return '1'
-            * 
-            * Examples:
-            * longestSequence({1,2,3,4,5,8,9}) returns '5', since the sequence '1,2,3,4,5' is 5 integers long 
-            * longestSequence({0,9,10,11,4,3,8,9}) returns '3', since '9,10,11' is 3 integers long
-            * longestSequence({0,9,8,11,4,3,7,9}) returns '1', since there are no consecutive integers
-            * */
            int sequence=1;
            int longestSequence = 1;
            for(int i=0;i<array1.length-1;i++){
@@ -213,8 +223,7 @@ public class ArraysHomework {
         			   longestSequence=sequence;
         		   sequence=1;
         	   }
-           }
-        	   
+           }   
            return longestSequence;
        }
 
@@ -225,46 +234,97 @@ public class ArraysHomework {
             * 
             * Examples:
             * longestSequence({9,6,3,4,3,8,9}, {9,6,3,4,3,6,7}) returns '5', since the sequence '9,6,3,4,3' is in both arrays and is 5 integers long 
-            * longestSequence({0,9,6,3,4,3,8,9}, {1,2,9,6,3,4,3,6,7}) returns '5', 
+            * longestSequence({0, 9,6,3,4,3 ,8,9,a,b}, {1,2, 9,6,3,4,3 ,6,7,a,b}) returns '5', 
             *          since the sequence '9,6,3,4,3' is in both arrays and is 5 integers long, it doesn't matter that the sequence begins at different indices 
             * longestSequence({3,9,6,1,4,3,6,7,9}, {4,9,6,5,8,3,6,7,0}) returns '3', since the sequence '3,6,7' is in both arrays and is 3 integers long
             * */
-
-    	   int tempSequenceLength=0;
-    	   int longestSequence=0;
-           for(int i=0;i<array1.length;i++){
-        	   for(int j=0;j<array2.length;j++){
-        		   if(array1[i]==array2[j]){
-        			   tempSequenceLength = countSequence(array1, array2,i,j);
-        			   if(tempSequenceLength>longestSequence)
-        				   longestSequence=tempSequenceLength;
-        			   if(array1.length<=i+tempSequenceLength)
-        			      i=array1.length;
-        			   else
-        				   i=i+tempSequenceLength-1;
-        			   System.out.println("i is "+i);
-        		   }
-        		 
-        	   }
+//i=1;
+//i=1+5=6;
+    	   int max = 0;
+           int count = 0;
+           
+           for(int seqStart=0; seqStart<array1.length; seqStart++){
+               //insert a loop here
+           	int seqEnd = seqStart;
+               int[] seq = getSequence(seqStart, seqEnd, array1);
+               if(checkSequence(seq, array2)){
+               	count++;
+               	if(count>max){
+               		max=count;
+               	}
+               }
+               //reset the count to 0 after every seq has been checked
+               count = 0;
            }
-           return longestSequence;
-
+           
+           return max;
+       }
+       
+       //returns true if seq is found inside array2;
+       private static boolean checkSequence(int[] seq, int[] arr){
+       	// i checks every value in arr
+       	A: for(int i=0; i<arr.length; i++){
+       		//j checks every element in seq
+       		B: for(int j=0; j<seq.length; j++){
+           		if(j+i<arr.length && seq[j]!=arr[j+i]){
+           			//break out of inner-most 'for loop' unless particular 'for loop' is specified
+           			//(labels "A:")
+           			break B;
+           		}
+           		else if(j == seq.length-1){
+           			return true;
+           		}
+           	}
+       	}
+       	return false;
        }
 
-       private static int countSequence(int[] arr1,int[] arr2,int start1, int start2) {
-    	   int sequenceLength=0;
-			int arr1Start = start1;
-			int arr2Start = start2;
-			while (arr1Start<arr1.length-1&&arr2Start<arr2.length-1&&arr1[arr1Start]==arr2[arr2Start]){
-				sequenceLength++;
-				arr1Start++;
-				arr2Start++;
-			}
-		return sequenceLength;
-	}
+     //returns a sub-array containing the elements in array1 from seqStart to seqEnd
+       private static int[] getSequence(int seqStarts, int seqEnd, int[] arr){
+    	   int[] seq = new Array[seqEnd-seqStarts+1];
+    	   for(int j=0;j<seq.length;j++){
+    	   		for(int i=seqStarts;i<seqEnd+1;i++){
+    	   			seq[j]=arr[i];
+    	   		}
+    	   }
+           return seq;
+       }
+//    	   int tempSequenceLength=0;
+//    	   int longestSequence=0;
+//           for(int i=0;i<array1.length-1;i++){
+//        	   for(int j=0;j<array2.length;j++){
+//        		   if(array1[i]==array2[j]){
+//        			   tempSequenceLength = countSequence(array1, array2,i,j);
+//        			   if(tempSequenceLength>longestSequence)
+//        				   longestSequence=tempSequenceLength;
+//        			   
+//        			   if(array1.length<=i+tempSequenceLength)
+//        			      i=array1.length;
+//        			   else if(tempSequenceLength>1)
+//        				   i=i+tempSequenceLength;
+//        			   System.out.println("temp seq length"+tempSequenceLength);
+//        			   System.out.println("i is "+i);
+//        		   }
+//        		 
+//        	   }
+//           }
+//           return longestSequence;
+//
+//       }
+//
+//       private static int countSequence(int[] arr1,int[] arr2,int start1, int start2) {
+//    	   int sequenceLength=0;
+//			int arr1Start = start1;
+//			int arr2Start = start2;
+//			while (arr1Start<arr1.length-1&&arr2Start<arr2.length-1&&arr1[arr1Start]==arr2[arr2Start]){
+//				sequenceLength++;
+//				arr1Start++;
+//				arr2Start++;
+//			}
+//		return sequenceLength;
+//	}
 
        public static int[] generateDistinctItemsList(int n){
-           
     	   int[] array= new int[n];
     	   for(int i=0;i<n;i++){
     		   int num=(int) (Math.random()*(2*n));
@@ -276,6 +336,7 @@ public class ArraysHomework {
     	   }
            return array; 
        }
+       
        private static boolean repeats(int[] array, int n){
     	   for(int num:array){
     		   if(n==num)
@@ -283,53 +344,29 @@ public class ArraysHomework {
     	   }
     	   return false;
        }
-       
 
        
-       
        public static void cycleThrough(int[] array, int n){
-           /** This problem represents people moving through a line.
-            * Once they get to the front of the line, they get what they've been waiting for, then they 
-            * immediately go to the end of the line and "cycle through" again.
-            * 
-            * This method reorders the array so that it represents what the array would look like
-            * after it had been cycled through an n number of times.
-            * For example, cycleThrough({2,1,5,6}}, 1) after executing, array == {1,5,6,2} 
-            * because '2' (the person at the front of the line) cycled through and is now at the end of the line
-            * 
-            * cycleThrough({3,7,4,2,8,6,2,9}}, 2) after executing, array == {4,2,8,6,2,9,3,7} 
-            * because '3' and '7' (the TWO people at the front of the line) cycled through and are now at the end of the line
-            * 
-            * Likewise,
-            * cycleThrough({3,7,4,2,8,6,2,9}}, 0) after executing, array == {3,7,4,2,8,6,2,9}  (no movement)
-            * and the most interesting case, 
-            * cycleThrough({3,7,4,2,8,6,2,9}}, 49) after executing, array == {7,4,2,8,6,2,9,3}  
-            * Because after cycling through 49 times, everyone had a chance to go through 6 times, but '3'
-            * was able to go through one more time than anyone else
-            * 
-            * CHALLENGE
-            * For extra credit, make your method handle NEGATIVE n
-            * */
     	   while(n>0){
     		   cycleOnce(array);
     		   n--;
     	   }
        }
 
-	private static void cycleOnce(int[] arr) {
-		if(arr.length>1){
-			for(int i=1;i<arr.length;i++){
-				int index1=i;
-				int index2=i-1;
-				swap(arr,index1,index2);
-				
+		private static void cycleOnce(int[] arr) {
+			if(arr.length>1){
+				for(int i=1;i<arr.length;i++){
+					int index1=i;
+					int index2=i-1;
+					swap(arr,index1,index2);	
+				}
 			}
 		}
-	}
-	private static void swap(int[] arr,int a,int b) {
-    	int placeholder=arr[b];
-    	arr[b]=arr[a];
-		arr[a]=placeholder;
-	}
-       
+	
+		private static void swap(int[] arr,int a,int b) {
+	    	int placeholder=arr[b];
+	    	arr[b]=arr[a];
+			arr[a]=placeholder;
+		}
+		
 }
