@@ -5,8 +5,6 @@ import java.lang.reflect.Array;
 public class ArraysHomework {
 
     public static void main(String[] args) {
-        double[] test={13.0,11.4,9.3,7.3,5.3,3.5,1.0,0.2,0.5};
-        getStats(test);
         
 //        for(int i=0;i<6;i++){
 //        	System.out.println(getStats(test)[i]);
@@ -18,10 +16,11 @@ public class ArraysHomework {
 //        for(int i=0;i<3;i++){
 //        	System.out.println(test2[i]);
 //        }
-//
-//        	int[] arr1={1,2,4,5,2,0,9,6,3,4,3,8,9,97,98}; 
-//        	int[]arr2={1,2,9,6,3,4,3,6,7,97,98};
-//        	System.out.println(longestSharedSequence(arr1,arr2));
+
+        	int[] arr1={1,-12,3,8,-10,19,18,9,3,3,-3,-3}; 
+        	int[]arr2={0,13,1,-12,4,9,-10,11,21,9,3,3,-3,-3};
+        	System.out.println(countSequence(arr1,arr2,7,9));
+        	System.out.println(longestSharedSequence(arr1,arr2));
 
         /**
          * IMPORTANT NOTE: 
@@ -240,89 +239,86 @@ public class ArraysHomework {
             * */
 //i=1;
 //i=1+5=6;
-    	   int max = 0;
-           int count = 0;
-           
-           for(int seqStart=0; seqStart<array1.length; seqStart++){
-               //insert a loop here
-           	int seqEnd = seqStart;
-               int[] seq = getSequence(seqStart, seqEnd, array1);
-               if(checkSequence(seq, array2)){
-               	count++;
-               	if(count>max){
-               		max=count;
-               	}
-               }
-               //reset the count to 0 after every seq has been checked
-               count = 0;
-           }
-           
-           return max;
-       }
-       
-       //returns true if seq is found inside array2;
-       private static boolean checkSequence(int[] seq, int[] arr){
-       	// i checks every value in arr
-       	A: for(int i=0; i<arr.length; i++){
-       		//j checks every element in seq
-       		B: for(int j=0; j<seq.length; j++){
-           		if(j+i<arr.length && seq[j]!=arr[j+i]){
-           			//break out of inner-most 'for loop' unless particular 'for loop' is specified
-           			//(labels "A:")
-           			break B;
-           		}
-           		else if(j == seq.length-1){
-           			return true;
-           		}
-           	}
-       	}
-       	return false;
-       }
-
-     //returns a sub-array containing the elements in array1 from seqStart to seqEnd
-       private static int[] getSequence(int seqStarts, int seqEnd, int[] arr){
-    	   int[] seq = new Array[seqEnd-seqStarts+1];
-    	   for(int j=0;j<seq.length;j++){
-    	   		for(int i=seqStarts;i<seqEnd+1;i++){
-    	   			seq[j]=arr[i];
-    	   		}
-    	   }
-           return seq;
-       }
-//    	   int tempSequenceLength=0;
-//    	   int longestSequence=0;
-//           for(int i=0;i<array1.length-1;i++){
-//        	   for(int j=0;j<array2.length;j++){
-//        		   if(array1[i]==array2[j]){
-//        			   tempSequenceLength = countSequence(array1, array2,i,j);
-//        			   if(tempSequenceLength>longestSequence)
-//        				   longestSequence=tempSequenceLength;
-//        			   
-//        			   if(array1.length<=i+tempSequenceLength)
-//        			      i=array1.length;
-//        			   else if(tempSequenceLength>1)
-//        				   i=i+tempSequenceLength;
-//        			   System.out.println("temp seq length"+tempSequenceLength);
-//        			   System.out.println("i is "+i);
-//        		   }
-//        		 
-//        	   }
+//    	   int max = 0;
+//           int count = 0;
+//           
+//           for(int seqStart=0; seqStart<array1.length; seqStart++){
+//               //insert a loop here
+//           	int seqEnd = seqStart;
+//               int[] seq = getSequence(seqStart, seqEnd, array1);
+//               if(checkSequence(seq, array2)){
+//               	count++;
+//               	if(count>max){
+//               		max=count;
+//               	}
+//               }
+//               //reset the count to 0 after every seq has been checked
+//               count = 0;
 //           }
-//           return longestSequence;
-//
+//           
+//           return max;
+//       }
+//       
+//       //returns true if seq is found inside array2;
+//       private static boolean checkSequence(int[] seq, int[] arr){
+//       	// i checks every value in arr
+//       	A: for(int i=0; i<arr.length; i++){
+//       		//j checks every element in seq
+//       		B: for(int j=0; j<seq.length; j++){
+//           		if(j+i<arr.length && seq[j]!=arr[j+i]){
+//           			//break out of inner-most 'for loop' unless particular 'for loop' is specified
+//           			//(labels "A:")
+//           			break B;
+//           		}
+//           		else if(j == seq.length-1){
+//           			return true;
+//           		}
+//           	}
+//       	}
+//       	return false;
 //       }
 //
-//       private static int countSequence(int[] arr1,int[] arr2,int start1, int start2) {
-//    	   int sequenceLength=0;
-//			int arr1Start = start1;
-//			int arr2Start = start2;
-//			while (arr1Start<arr1.length-1&&arr2Start<arr2.length-1&&arr1[arr1Start]==arr2[arr2Start]){
-//				sequenceLength++;
-//				arr1Start++;
-//				arr2Start++;
-//			}
-//		return sequenceLength;
-//	}
+//     //returns a sub-array containing the elements in array1 from seqStart to seqEnd
+//       private static int[] getSequence(int seqStarts, int seqEnd, int[] arr){
+//    	   int[] seq = new Array[seqEnd-seqStarts+1];
+//    	   for(int j=0;j<seq.length;j++){
+//    	   		for(int i=seqStarts;i<seqEnd+1;i++){
+//    	   			seq[j]=arr[i];
+//    	   		}
+//    	   }
+//           return seq;
+//       }
+    	   int tempSequenceLength=0;
+    	   int longestSequence=0;
+           for(int i=0;i<array1.length-1;i++){
+        	   for(int j=0;j<array2.length;j++){
+        		   if(array1[i]==array2[j]){
+        			   tempSequenceLength = countSequence(array1, array2,i,j);
+        			   if(tempSequenceLength>longestSequence)
+        				   longestSequence=tempSequenceLength;
+        			   
+        			   if(array1.length<=i+tempSequenceLength)
+        			      i=array1.length-1;
+        			   else if(tempSequenceLength>1)
+        				   i=i+tempSequenceLength;
+        		   } 
+        	   }
+           }
+           return longestSequence;
+
+       }
+
+       private static int countSequence(int[] arr1,int[] arr2,int start1, int start2) {
+    	   int sequenceLength=0;
+			int arr1Start = start1;
+			int arr2Start = start2;
+			while (arr1Start<arr1.length&&arr2Start<arr2.length&&arr1[arr1Start]==arr2[arr2Start]){
+				sequenceLength++;
+				arr1Start++;
+				arr2Start++;
+			}
+		return sequenceLength;
+	}
 
        public static int[] generateDistinctItemsList(int n){
     	   int[] array= new int[n];
