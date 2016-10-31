@@ -14,7 +14,6 @@ public class TwoDArrays {
 		System.out.println("The width is " +arr2D[0].length);
 		
 		for(int row=0;row<arr2D.length;row++){
-			
 			//populate with coordinates
 			for( int col=0;col<arr2D[row].length;col++){
 				arr2D[row][col]="("+row+ ", " +col+")";
@@ -30,3 +29,4 @@ public class TwoDArrays {
 	}
 
 }
+
