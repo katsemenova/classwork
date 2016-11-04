@@ -25,6 +25,7 @@ public class TwoDArrays {
 		}
 			starti=2;
 			startj=2;
+			makeGrid();
 			startExploring();
 		
 	}
