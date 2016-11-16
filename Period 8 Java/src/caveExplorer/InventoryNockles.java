@@ -8,7 +8,6 @@ public class InventoryNockles {
 	public InventoryNockles(CaveRoomPd8[][] caves) {
 		hasMap=false;
 		updateMap();
-		
 	}
 	
 
