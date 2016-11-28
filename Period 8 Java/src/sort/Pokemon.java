@@ -13,6 +13,14 @@ public class Pokemon {
 		poisoned=false;
 		
 	}
+	public void attack(Pokemon target, Attack attack){
+		if(Math.random()<.9){
+			attack.attack(target);
+			System.out.println("The attack hit");
+		}else{
+			System.out.println("The attack missed");
+		}
+	}
 	public void iChooseYou(){
 		System.out.println(name+", " + name +"!");
 	}
