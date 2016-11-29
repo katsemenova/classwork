@@ -6,7 +6,7 @@ public class Pokemon {
 	private String name;
 	private boolean poisoned;
 	
-	public void constructor(String n, int l){
+	public  Pokemon(String n, int l){
 		name=n;
 		level=l;
 		hp=100;
@@ -26,6 +26,9 @@ public class Pokemon {
 	}
 	public void setHp(int newHp) {
 		this.hp = newHp;
+	}
+	public int getHp() {
+		return hp;
 	}
 	public String getName() {
 		return name;
