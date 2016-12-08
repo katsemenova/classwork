@@ -14,11 +14,13 @@ public class GUIApplication extends JFrame {
 	}
 	public GUIApplication(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setUndecorated(true);
 		int x=40;
 		int y=40;
 		int width=600;
 		int height=400;
 		setBounds(x,y,width,height);
+		initScreen();
 		setVisible(true);
 	}
 	protected void initScreen(){
