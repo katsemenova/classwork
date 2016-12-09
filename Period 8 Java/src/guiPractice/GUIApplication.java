@@ -4,14 +4,10 @@ import java.awt.Graphics;
 
 import javax.swing.JFrame;
 
-public class GUIApplication extends JFrame {
+public abstract class GUIApplication extends JFrame {
 
 	private Screen currentScreen;
-		
-	public static void main(String[] args) {
-		new GUIApplication();
-
-	}
+	//no main, cant instentiate an abstract class
 	public GUIApplication(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//setUndecorated(true);
@@ -23,11 +19,12 @@ public class GUIApplication extends JFrame {
 		initScreen();
 		setVisible(true);
 	}
-	protected void initScreen(){
-		Screen startScreen=new Screen(getWidth(),getHeight());
-		currentScreen=startScreen;
-	}
+	//this is a method for creating the starting screen
+	protected abstract void initScreen();
 	
+	public void setScreen(Screen screen){
+		currentScreen=screen;
+	}
 	public void paint(Graphics g){
 		g.drawImage(currentScreen.getImage(), 0, 0, null);
 	}
