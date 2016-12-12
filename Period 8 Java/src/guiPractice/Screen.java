@@ -13,7 +13,7 @@ public abstract class Screen {
 	
 	private int width;
 	private int height;
-	private ArrayList<Visible> viewObjects;
+	protected ArrayList<Visible> viewObjects;
 	
 	protected BufferedImage image;
 	
@@ -21,8 +21,8 @@ public abstract class Screen {
 		viewObjects=new ArrayList<Visible>();
 		this.width = width;
 		this.height= height;
-		initImage();
 		initObjects(viewObjects);
+		initImage();
 		}
 	
 	public abstract void initObjects(ArrayList<Visible> viewObjects2);
