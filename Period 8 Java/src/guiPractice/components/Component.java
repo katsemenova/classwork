@@ -25,6 +25,10 @@ public abstract class Component implements Visible {
 	 */
 	public abstract void update(Graphics2D g);
 	
+	public Graphics2D clear(){
+		image=new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
+		return image.createGraphics();
+	}
 	public BufferedImage getImage() {
 		return image;
 	}
@@ -46,6 +50,7 @@ public abstract class Component implements Visible {
 	}
 	public boolean isAnimated(){
 		return false;
+
 	}
 	public void update(){
 		update(image.createGraphics());
