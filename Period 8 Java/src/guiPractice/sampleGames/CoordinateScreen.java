@@ -34,6 +34,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener{
 			}
 			});
 		viewObjects.add(button);
+		Graphic images=
 	}
 
 	
