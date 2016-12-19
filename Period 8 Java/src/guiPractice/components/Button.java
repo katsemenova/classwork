@@ -6,6 +6,8 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
+
+
 public class Button extends TextLabel implements Clickable{
 	
 	private Color color;
@@ -65,5 +67,7 @@ public class Button extends TextLabel implements Clickable{
 	public void act() {
 		action.act();
 	}
+	
+
 
 }

@@ -4,7 +4,9 @@ import guiPractice.GUIApplication;
 
 public class MouseFollower extends GUIApplication {
 
-	private CoordinateScreen coordScreen;
+	public static CoordinateScreen coordScreen;
+	public static MouseFollower game;
+	public static MyScreen moveScreen;
 	
 	public static void main(String[] args){
 		GUIApplication game = new MouseFollower();
