@@ -58,7 +58,7 @@ public class Button extends TextLabel implements Clickable{
 
 	@Override
 	public boolean isHovered(int x, int y) {
-		if(x>getX()&&x<getX()+getWidth()&&y>getY()&&y<getY()+getHeight())
+		if(x>getX()&&x<(getX()+getWidth())&&y>getY()&&y<(getY()+getHeight()))
 			return true;
 		return false;
 	}

@@ -33,7 +33,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 		//viewObjects.add(paragraph);
 		button = new Button((getWidth()-200)/2,(getHeight()-50)/2,200,50,"Click here to start",new Color(0,76,153), new Action(){
 			public void act(){
-				
+				MouseFollower.game.setScreen(MouseFollower.moveScreen);
 			}
 			});
 		picture=new Graphic(0,0,getWidth(),getHeight(),"resourses/sampleImages/blueBack.jpg");
@@ -47,19 +47,22 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 	
 	}
 
-
+	public MouseMotionListener getMouseMotionListener(){
+		return this;
+	}
+	public MouseListener getMouseListener(){
+		return this;
+	}
 	public void mouseMoved(MouseEvent m) {
 //		label.setText("Mouse at: "+m.getX()+", "+m.getY());
 		
 	}
-	public MouseMotionListener getMouseMotionListener(){
-		return this;
-	}
-
+	           
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(button.isHovered(e.getX(), e.getY())){
+			button.act();
+			}
 	}
 
 	@Override
