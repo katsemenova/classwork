@@ -14,8 +14,6 @@ import guiPractice.components.Visible;
 public abstract class Screen {
 	
 	private int width;
-	
-	
 	private int height;
 	protected ArrayList<Visible> viewObjects;
 	
