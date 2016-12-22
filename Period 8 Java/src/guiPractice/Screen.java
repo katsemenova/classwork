@@ -134,5 +134,10 @@ public abstract class Screen {
 		return height;
 	}
 
+	public void addObject(Visible v) {
+		viewObjects.add(v);
+		
+	}
+
 	
 }

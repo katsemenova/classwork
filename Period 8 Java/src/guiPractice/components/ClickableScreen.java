@@ -13,7 +13,7 @@ public abstract class ClickableScreen extends Screen implements MouseMotionListe
 	
 	public ClickableScreen(int width, int height) {
 		super(width, height);
-		clickables=new ArrayList<Clickable>();
+	
 	}
 
 	public MouseListener getMouseListener(){
@@ -71,9 +71,19 @@ public abstract class ClickableScreen extends Screen implements MouseMotionListe
 
 	}
 
+	public void addObject(Visible v){
+		super.addObject(v);
+		if(v instanceof Clickable)
+			clickables.add((Clickable)v);
+	}
+	public void remove(Visible v){
+		super.remove(v);
+		clickables.remove(v);
+	}
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		initAllObjects(viewObjects);
+		clickables=new ArrayList<Clickable>();
 		for(Visible object: viewObjects){
 			if(object instanceof Clickable){
 				clickables.add((Clickable)object);
