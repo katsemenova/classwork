@@ -95,7 +95,7 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable {
 		//it disappears
 		for(int i=0; i<moles.size(); i++){
 			MoleInterface m = moles.get(i);
-			m.setAppearanceTime(m.getAppearanceTime()-10);
+			m.setAppearanceTime(m.getAppearanceTime()-100);
 			if(m.getAppearanceTime()<=0){
 				//remove from visible screen
 				remove(m);

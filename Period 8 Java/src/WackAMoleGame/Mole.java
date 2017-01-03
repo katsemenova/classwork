@@ -19,9 +19,7 @@ public class Mole extends ClickableGraphic implements MoleInterface {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void setAppearanceTime(double i) {
-		this.appearanceTime = i;
-	}
+
 	
 	@Override
 	public int getAppearanceTime() {
@@ -32,6 +30,7 @@ public class Mole extends ClickableGraphic implements MoleInterface {
 	public void setAppearanceTime(int i) {
 		// TODO Auto-generated method stub
 		
+		this.appearanceTime = i;
 	}
 
 }
