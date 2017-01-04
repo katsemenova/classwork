@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import guiPractice.Screen;
 import guiPractice.components.Button;
 import guiPractice.components.Graphic;
+import guiPractice.components.MovingComponent;
 import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
@@ -37,9 +38,14 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 			}
 			});
 		picture=new Graphic(0,0,getWidth(),getHeight(),"resourses/sampleImages/blueBack.jpg");
+		
 		viewObjects.add(picture);
 		//viewObjects.add(label);
 		viewObjects.add(button);
+		MovingComponent mc= new MovingComponent(30,60,80,80);
+		mc.setVy(3);
+		mc.play();
+		viewObjects.add(mc);
 	}
 
 	
