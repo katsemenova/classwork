@@ -1,13 +1,23 @@
 package SimonGameKat;
 
+
 import guiPractice.GUIApplication;
 
 public class SimonGameKat extends GUIApplication {
 
-	@Override
-	protected void initScreen() {
-		// TODO Auto-generated method stub
-
+	public SimonGameKat() {
+		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	protected void initScreen() {
+		SimonScreenKat wams = new SimonScreenKat(getWidth(),getHeight());
+		setScreen(wams);
+	}
+
+	public static void main(String[] args) {
+		SimonGameKat game = new SimonGameKat();
+		Thread app = new Thread(game);
+		app.start();
+	}
 }
