@@ -114,7 +114,7 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable {
 	 * @return
 	 */
 	private PlayerInterface getAPlayer(){
-		return new Player(20,20);
+		return new PlayerKat(20,20);
 	}
 	
 	

@@ -5,11 +5,11 @@ import java.awt.Graphics2D;
 
 import guiPractice.components.Component;
 
-public class Player extends Component implements PlayerInterface {
+public class PlayerKat extends Component implements PlayerInterface {
 
 	private int score;
 	
-	public Player(int x, int y) {
+	public PlayerKat(int x, int y) {
 		super(x, y, 100, 100);
 		score = 0;
 	}
