@@ -68,6 +68,7 @@ public abstract class GUIApplication extends JFrame implements Runnable{
 			repaint();
 			try {
 				Thread.sleep(40);
+				repaint();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
