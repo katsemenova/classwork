@@ -11,3 +11,10 @@ Goal for today: Make food draggable to feed the dragons instead of the hungry bu
 Today: I figured out with Mr.Nockle's help how to set up food to be draggable as well as refreshed on where our code is
 For monday I hope to finish the food to be draggable and pass it off to jenniber to make the dragons feedable 
 through the food being dropped
+
+5/8/17
+Goal: try to finish the DragonFood class. 
+Today: I made dragonfood replicate the idea behind how clickables are initialized. So basically it checks viewObjects and adds
+an object to the draggable array if it is an instanceof draggable. Then using mousedragged it should follow the mouse when the little
+food berry is clicked. However, right now there are no errors yet it doesnt work when I try to drag. Tomorrow I want to get the full
+functionality. 
