@@ -17,4 +17,11 @@ Goal: try to finish the DragonFood class.
 Today: I made dragonfood replicate the idea behind how clickables are initialized. So basically it checks viewObjects and adds
 an object to the draggable array if it is an instanceof draggable. Then using mousedragged it should follow the mouse when the little
 food berry is clicked. However, right now there are no errors yet it doesnt work when I try to drag. Tomorrow I want to get the full
-functionality. 
+functionality.
+
+5/11/17
+Goal: I wanted to make the berry draggable
+Today: The issue was that the mouse motion listener wasnt instentiating, so it never called the methods to drag. Then I also made 
+sure that the mouse woulda always be in the middle of the berry. Finally, when released the berry falls into original position. 
+Then with Mr.Nockles I made sure that no matter how fast the mouse moves, once the berry is begining to be dragged it will always follow
+the mouse
