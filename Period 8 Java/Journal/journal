@@ -25,3 +25,9 @@ Today: The issue was that the mouse motion listener wasnt instentiating, so it n
 sure that the mouse woulda always be in the middle of the berry. Finally, when released the berry falls into original position. 
 Then with Mr.Nockles I made sure that no matter how fast the mouse moves, once the berry is begining to be dragged it will always follow
 the mouse
+
+5/12/17
+Goal: Make game working on mine and violetta's macs
+Today: I made berries to feed the Dragon. I removed the action from the button. Instead to feed the dragons, I  call a method in 
+Jennibers class that removes a hungry box if the berry is overlaying one of the draggons on mouse release
+also i was trying to make the program runnable on my Mac.
