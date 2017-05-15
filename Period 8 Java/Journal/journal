@@ -31,3 +31,9 @@ Goal: Make game working on mine and violetta's macs
 Today: I made berries to feed the Dragon. I removed the action from the button. Instead to feed the dragons, I  call a method in 
 Jennibers class that removes a hungry box if the berry is overlaying one of the draggons on mouse release
 also i was trying to make the program runnable on my Mac.
+
+5/15/17
+Goal: To make a polygon shaped button for our posts.
+Today: First I tried using a tutorial but that got too confusing. So instead I made a new class that's a clickable. 
+The button works the only issue is that I can't see the polygon at the moment so I have to figure out how to make it visible to test
+it and position the buttons
