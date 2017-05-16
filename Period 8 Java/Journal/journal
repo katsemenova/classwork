@@ -41,3 +41,5 @@ it and position the buttons
 5/16/17
 Goal: Get the buttons to position and be able to see them
 Today: I made the outline temporary visible. Now it is all the matter of getting the points down.
+The issue is that it only works like a button when I click on top of the shape but still in the box component
+container. Does not go to another screen when clicked within the polygon.
