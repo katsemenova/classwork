@@ -43,3 +43,10 @@ Goal: Get the buttons to position and be able to see them
 Today: I made the outline temporary visible. Now it is all the matter of getting the points down.
 The issue is that it only works like a button when I click on top of the shape but still in the box component
 container. Does not go to another screen when clicked within the polygon.
+
+5/17/17
+Goal: Add polygon buttons to main screen, and make them functions, add more coordinates for more dragons on screen,
+and then make dragons actually fly away when not fed
+Today: I played around with some graphics and sizing for the draggons. I also fixed the bug where the button 
+would work only if you clicked above the physical button. The issue was due to JPanel vs JFrame. To fix it
+I adjusted the isHovered algorithm. Today I didn't get to the flying away animation yet.
