@@ -50,3 +50,9 @@ and then make dragons actually fly away when not fed
 Today: I played around with some graphics and sizing for the draggons. I also fixed the bug where the button 
 would work only if you clicked above the physical button. The issue was due to JPanel vs JFrame. To fix it
 I adjusted the isHovered algorithm. Today I didn't get to the flying away animation yet.
+
+5/22/17
+Goal: Finish redesigning the home screen with new dragon positions, and also finish all buttons
+Today: I recalculated more dragon positions but now I will still have to gurantee that the dragons will never cover the 
+arrows/posts. I will probably handle this with another array where it picks out some coordinates that will never be random
+while others will be random.
