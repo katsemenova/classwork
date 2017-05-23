@@ -56,3 +56,8 @@ Goal: Finish redesigning the home screen with new dragon positions, and also fin
 Today: I recalculated more dragon positions but now I will still have to gurantee that the dragons will never cover the 
 arrows/posts. I will probably handle this with another array where it picks out some coordinates that will never be random
 while others will be random.
+
+5/23/17
+Goal: Fix the bugs in the home screen, begin the incubation screen;
+Today: I fixed the bugs in the home screen, also fixed a bug where the dragon is fed if just clicked upon. I began making the incubation screen
+that will be enetred through the shop. I will have to explore threads to make the eggs incubate.
