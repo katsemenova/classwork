@@ -61,3 +61,8 @@ while others will be random.
 Goal: Fix the bugs in the home screen, begin the incubation screen;
 Today: I fixed the bugs in the home screen, also fixed a bug where the dragon is fed if just clicked upon. I began making the incubation screen
 that will be enetred through the shop. I will have to explore threads to make the eggs incubate.
+
+5/24/17
+Goal: Work with Violetta to get buy screen to work, 
+Today: We got that for some reason the button doesnt work to buy it because the act is never called. Very strange behavior
+we will bpth be looking at it at home to try to fix it.
