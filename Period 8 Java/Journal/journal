@@ -66,3 +66,9 @@ that will be enetred through the shop. I will have to explore threads to make th
 Goal: Work with Violetta to get buy screen to work, 
 Today: We got that for some reason the button doesnt work to buy it because the act is never called. Very strange behavior
 we will bpth be looking at it at home to try to fix it.
+
+5/25/17
+Oops did this at home cause caught up working in class
+Goal: fix the bugs to make the dragons be purchased
+Today: I found out we are supposed to use addObject(o) and Remove. However, I was able to deeply bug test and 
+I figured out violetta's code. Also, added sound and fixed up background colors.
