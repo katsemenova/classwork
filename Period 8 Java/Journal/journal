@@ -68,5 +68,12 @@ Today: We got that for some reason the button doesnt work to buy it because the 
 we will bpth be looking at it at home to try to fix it.
 
 5/25/17
+Oops did this at home cause caught up working in class
+Goal: fix the bugs to make the dragons be purchased
+Today: I found out we are supposed to use addObject(o) and Remove. However, I was able to deeply bug test and 
+I figured out violetta's code. Also, added sound and fixed up background colors.
+5/26/17
+
 Goal: Make the dragon stats show up when hovered over dragon in shop
-Today:
+Today: made drgaons appear/reappear on hover but the stats cause errors for now due to casting
+
