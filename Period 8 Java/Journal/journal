@@ -72,8 +72,12 @@ Oops did this at home cause caught up working in class
 Goal: fix the bugs to make the dragons be purchased
 Today: I found out we are supposed to use addObject(o) and Remove. However, I was able to deeply bug test and 
 I figured out violetta's code. Also, added sound and fixed up background colors.
+
 5/26/17
-
 Goal: Make the dragon stats show up when hovered over dragon in shop
-Today: made drgaons appear/reappear on hover but the stats cause errors for now due to casting
+Today: made dragons appear/reappear on hover but the stats cause errors for now due to casting
 
+5/30/17
+Goal: To get stats to show up when hovered over dragon in shop.
+Today: I got the name of the dragon to appear on screen but it never dissapears when I stop hovering, I got that this is
+because I keep adding new labels, so I just have to make a new array of labels on screen. So I dont end up creating multiple name labels. 
