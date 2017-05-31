@@ -81,3 +81,8 @@ Today: made dragons appear/reappear on hover but the stats cause errors for now 
 Goal: To get stats to show up when hovered over dragon in shop.
 Today: I got the name of the dragon to appear on screen but it never dissapears when I stop hovering, I got that this is
 because I keep adding new labels, so I just have to make a new array of labels on screen. So I dont end up creating multiple name labels. 
+
+5/31/17
+Goal: Although the shop and sell screens work there a memory issue.
+Today: I attempted to fix the memory problem, but it still remains. Also worked with Jenniber to figure out the look for 
+the high score page. Soon i plan to begin the incubator screen.
