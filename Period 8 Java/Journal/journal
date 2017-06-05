@@ -86,3 +86,11 @@ because I keep adding new labels, so I just have to make a new array of labels o
 Goal: Although the shop and sell screens work there a memory issue.
 Today: I attempted to fix the memory problem, but it still remains. Also worked with Jenniber to figure out the look for 
 the high score page. Soon i plan to begin the incubator screen.
+
+6/1/17
+Excused absence
+
+6/5/17
+Goal:Begin setup of incubator screen.
+Today: set up the look of incubator screen. But I also have to begin implimenting functionality. Since i copied a lot of the code
+from shop screen I also have to modify it to simplify it.
