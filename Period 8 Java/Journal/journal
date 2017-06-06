@@ -94,3 +94,8 @@ Excused absence
 Goal:Begin setup of incubator screen.
 Today: set up the look of incubator screen. But I also have to begin implimenting functionality. Since i copied a lot of the code
 from shop screen I also have to modify it to simplify it.
+
+6/6/17
+Goal: Make the eggs shake and add to the incubators as well as add the incubators onto the screen
+Today: I set up the incubators, and through checkBehaviors I made the eggs shake every several seconds for a couple seconds then stop.
+But I still didnt get the functionality for the egg to appear in the incubator on screen.
