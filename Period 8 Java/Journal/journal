@@ -99,3 +99,8 @@ from shop screen I also have to modify it to simplify it.
 Goal: Make the eggs shake and add to the incubators as well as add the incubators onto the screen
 Today: I set up the incubators, and through checkBehaviors I made the eggs shake every several seconds for a couple seconds then stop.
 But I still didnt get the functionality for the egg to appear in the incubator on screen.
+
+6/7/17
+Goal: Make the eggs appear in the incubators, set constrains onto buying them (amount of dragons/money), and set up the time left
+Today: I added the label for the time, it required some tweaking. Added it to checkbehaviors for the egg which in turn adds a
+text label to the screen. Still have to work out what happens when the egg hatches. need to stop thread.
