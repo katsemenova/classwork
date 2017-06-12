@@ -104,3 +104,7 @@ But I still didnt get the functionality for the egg to appear in the incubator o
 Goal: Make the eggs appear in the incubators, set constrains onto buying them (amount of dragons/money), and set up the time left
 Today: I added the label for the time, it required some tweaking. Added it to checkbehaviors for the egg which in turn adds a
 text label to the screen. Still have to work out what happens when the egg hatches. need to stop thread.
+
+6/12/17
+Goal: make a popup appear when dragon hatches.
+Today: I added the popup using a textlabel and a graphic. I just have to position it better. Also, bug tested the game.
